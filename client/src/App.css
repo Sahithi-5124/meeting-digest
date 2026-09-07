@@ -1,78 +1,117 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: #fafaf9;
-  color: #1c1c1c;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #DDE1D3;
+  color: #1C2B22;
 }
 
 .home {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 48px 24px;
+  max-width: 720px;
+  margin: 48px auto;
+  padding: 48px 56px 72px;
+  background-color: #F5F6F1;
+  border: 1px solid #D2D6C9;
 }
-
 h1 {
-  color:#1c1c1c;
-  font-size: 28px;
+  font-family: 'Roboto Slab', serif;
+  font-size: 26px;
   font-weight: 600;
-  margin-bottom: 4px;
+  color: #1C2B22;
+  margin: 0 0 6px;
 }
 
-.subtitle {
-  color: #6b6b6b;
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #D2D6C9;
+  padding-bottom: 16px;
   margin-bottom: 32px;
-  font-size: 15px;
+}
+
+.header-row .subtitle {
+  color: #56635A;
+  font-size: 14px;
+  margin: 0;
+}
+
+.back-link {
+  color: #1C2B22;
+  font-size: 14px;
+  text-decoration: none;
+  border-bottom: 1px solid #56635A;
+  padding-bottom: 1px;
+  white-space: nowrap;
+}
+
+.back-link:hover {
+  border-bottom-color: #1C2B22;
 }
 
 .notes-input {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .notes-input label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  color: #3a3a3a;
+  color: #56635A;
 }
 
 .notes-input textarea {
-  padding: 14px;
-  border: 1px solid #d8d6d1;
-  border-radius: 6px;
+  padding: 16px 16px 16px 28px;
+  border: 1px solid #D2D6C9;
+  border-left: 3px solid #B5842A;
+  border-radius: 2px;
+  background-color: #1C2B22;
+  color: #EEF0EA;
   font-size: 15px;
   font-family: inherit;
   resize: vertical;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+.notes-input textarea::placeholder {
+  color: #8B9686;
 }
 
 .notes-input textarea:focus {
   outline: none;
-  border-color: #3a3a3a;
+  border-color: #2F5D50;
+  border-left-color: #2F5D50;
+}
+
+.notes-input .hint {
+  font-size: 13px;
+  color: #B5842A;
+  margin: 0;
 }
 
 .notes-input button {
   align-self: flex-start;
-  padding: 10px 20px;
-  background-color: #1c1c1c;
-  color: white;
+  padding: 10px 22px;
+  background-color: #1C2B22;
+  color: #EEF0EA;
   border: none;
-  border-radius: 6px;
+  border-radius: 2px;
   font-size: 14px;
   font-weight: 500;
+  font-family: inherit;
   cursor: pointer;
 }
 
 .notes-input button:disabled {
-  background-color: #b8b6b1;
+  background-color: #B8BDAF;
   cursor: not-allowed;
 }
 
 .error {
-  color: #b23b3b;
-  background-color: #fbeaea;
+  color: #8A3B2B;
+  background-color: #F3E4DE;
   padding: 12px 14px;
-  border-radius: 6px;
+  border-radius: 2px;
   margin-top: 16px;
   font-size: 14px;
 }
@@ -81,100 +120,173 @@ h1 {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 32px;
 }
 
 .digest-result h2 {
-  font-size: 16px;
+  font-family: 'Roboto Slab', serif;
+  font-size: 15px;
   font-weight: 600;
-  margin-bottom: 10px;
-  color: #1c1c1c;
+  color: #1C2B22;
+  margin: 0 0 12px;
 }
 
 .digest-result ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 }
 
 .digest-result li {
   font-size: 15px;
   line-height: 1.5;
-  padding: 10px 14px;
-  background-color: #f2f1ee;
-  border-radius: 6px;
+  padding: 10px 0 10px 18px;
+  border-bottom: 1px solid #D2D6C9;
+  position: relative;
+}
+
+.digest-result li:last-child {
+  border-bottom: none;
+}
+
+.digest-result li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 17px;
+  width: 6px;
+  height: 6px;
+  background-color: #2F5D50;
 }
 
 .digest-result .action-items li {
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  padding-left: 0;
+}
+
+.digest-result .action-items li::before {
+  display: none;
+}
+
+.digest-result .action-items input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  border: 1.5px solid #1C2B22;
+  border-radius: 2px;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.digest-result .action-items input[type='checkbox']:checked {
+  background-color: #2F5D50;
+  border-color: #2F5D50;
+}
+
+.digest-result .action-items input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.digest-result .action-items label {
+  flex: 1;
 }
 
 .digest-result .owner {
-  color: #6b6b6b;
+  color: #56635A;
   font-size: 13px;
 }
 
 .digest-result .empty {
-  color: #9a9890;
+  color: #9AA391;
   font-size: 14px;
   font-style: italic;
-}
-
-.header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 32px;
-}
-
-.header-row h1,
-.header-row .subtitle {
-  margin-bottom: 4px;
-}
-
-.back-link {
-  color: #3a3a3a;
-  font-size: 14px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.back-link:hover {
-  text-decoration: underline;
+  padding-left: 0;
 }
 
 .history-list {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  margin-top: 24px;
+  gap: 0;
+  margin-top: 8px;
 }
 
 .history-entry {
-  padding-bottom: 32px;
-  border-bottom: 1px solid #e5e3de;
+  border-bottom: 1px solid #D2D6C9;
+}
+
+.history-entry:last-child {
+  border-bottom: none;
+}
+
+.history-entry summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 0;
+}
+
+.history-entry summary::-webkit-details-marker {
+  display: none;
+}
+
+.history-entry summary::after {
+  content: '+';
+  color: #56635A;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.history-entry[open] summary::after {
+  content: '−';
+}
+
+.history-summary-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .history-date {
   font-size: 13px;
-  color: #9a9890;
-  margin-bottom: 6px;
+  color: #9AA391;
+}
+
+.history-preview {
+  font-size: 14px;
+  color: #56635A;
+  font-style: italic;
+}
+
+.history-body {
+  padding-bottom: 32px;
 }
 
 .history-notes {
   font-size: 14px;
-  color: #6b6b6b;
+  color: #56635A;
   font-style: italic;
-  margin-bottom: 16px;
+  margin: 0 0 16px;
+  padding-top: 4px;
+  border-top: 1px solid #D2D6C9;
 }
 
-.notes-input .hint {
-  font-size: 13px;
-  color: #9a7b3b;
-  margin: 0;
+.history-entry[open] .history-preview {
+  display: none;
 }
